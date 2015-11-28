@@ -1,0 +1,87 @@
+html, body{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#container{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  text-align: right;
+}
+
+#color_list{
+  position: fixed;
+  right: 0;
+  width: 50px;
+  list-style-type: none;
+  margin: 0;
+  margin-top: 50px;
+  padding: 0 5px;
+  background-color: gray;
+}
+
+#white{
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  margin: 5px 0;
+}
+
+#black{
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  margin: 5px 0;
+}
+
+#red{
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  margin: 5px 0;
+}
+
+#blue{
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  margin: 5px 0;
+}
+
+#yellow{
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  margin: 5px 0;
+}
+
+#green{
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  margin: 5px 0;
+}
+
+#purple{
+  width: 50px;
+  height: 50px;
+  background-color: purple;
+  margin: 5px 0;
+}
+
+#orange{
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  margin: 5px 0;
+}
+
+#pink{
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+  margin: 5px 0;
+}

@@ -1,0 +1,16 @@
+
+We consider everything is object
+procedual parog/ structured/modular
+Easier to understandable
+Easier to modular
+Easier to debug it
+Faster to understand
+
+addition
+substracting
+multipanating
+dividing
+
+object --- property
+        |
+        -- method
