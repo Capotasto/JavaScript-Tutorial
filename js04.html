@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>js04</title>
+  <style media="screen">
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #content {
+      width: 800px;
+      height: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #left_btn {
+      float: left;
+      height: 500px;
+      width: 100px;
+    }
+
+    #slide_pic {
+      float: left;
+      height: 500px;
+      width: 500px
+    }
+
+    #slide_pic img {}
+
+    #right_btn {
+      float: left;
+      height: 500px;
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+    <button id="left_btn" type="button" name="button" onclick="change_pic('-')">
+      <</button>
+        <div id="slide_pic">
+          <img id="pic" src="img/img01.png" alt="" />
+        </div>
+        <button id="right_btn" type="button" name="button" onclick="change_pic('+')">></button>
+  </div>
+
+  <script type="text/javascript">
+    var picNum = 1;
+
+    function change_pic(symbol) {
+
+      if (symbol == '+') {
+        picNum++
+      } else if (symbol == '-') {
+        picNum--
+        if (picNum < 0) {
+          picNum += 7
+        }
+      }
+      picNum %= 7
+
+      console.log(picNum);
+
+      switch (picNum) {
+        case 0:
+          document.getElementById('pic').src = "img/img00.jpeg"
+          break;
+
+        case 1:
+          document.getElementById('pic').src = "img/img01.png"
+          break;
+
+        case 2:
+          document.getElementById('pic').src = "img/img02.jpeg"
+          break;
+
+        case 3:
+          document.getElementById('pic').src = "img/img03.jpg"
+          break;
+
+        case 4:
+          document.getElementById('pic').src = "img/img04.jpg"
+          break;
+
+        case 5:
+          document.getElementById('pic').src = "img/img05.png"
+
+          break;
+
+        case 6:
+          document.getElementById('pic').src = "img/img06.jpg"
+
+          break;
+
+        default:
+
+      }
+    }
+  </script>
+</body>
+
+</html>
