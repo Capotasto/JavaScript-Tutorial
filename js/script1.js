@@ -19,16 +19,16 @@ function operation(operand) {
 
 
   switch (operand) {
-    case '+':
+    case '1':
       res.innerHTML = Number(op1) + Number(op2)
       break;
-    case '-':
+    case '2':
       res.innerHTML = Number(op1) - Number(op2)
       break;
-    case '*':
+    case '3':
       res.innerHTML = Number(op1) * Number(op2)
       break;
-    case '/':
+    case '4':
       res.innerHTML = Number(op1) / Number(op2)
       break;
     default:

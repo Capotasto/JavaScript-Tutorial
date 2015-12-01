@@ -23,10 +23,18 @@
   <input type="number" id="op1">
   <input type="number" id="op2">
   <p id="result"></p>
-  <button onclick="operation('+')"> + </button>
+  <!-- <button onclick="operation('+')"> + </button>
   <button onclick="operation('-')"> - </button>
   <button onclick="operation('*')"> * </button>
-  <button onclick="operation('/')"> / </button>
+  <button onclick="operation('/')"> / </button> -->
+
+  <!-- <select id="comboA" onchange="operation(document.getElementById('comboA').value)"> -->
+    <select id="comboA" onchange="operation(this.value)">
+    <option value = '1'>Add</option>
+    <option value = '2'>Sub</option>
+    <option value = '3'>Mul</option>
+    <option value = '4'>Div</option>
+  </select>
 
   <script src="js/script1.js">
   </script>

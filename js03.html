@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>js03</title>
+    <style media="screen">
+      span{
+        width: 100px;
+        height: 50px;
+        margin: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="number" id="op1" onkeyup="calc()" >
+    <input type="number" id="op2" onkeyup="calc()" >
+    <br/>
+    + = <span id="add">0</span>
+    - = <span id="sub">0</span>
+    * = <span id="multi">0</span>
+    / = <span id="div">0</span>
+
+    <script type="text/javascript">
+      function calc(){
+
+        var resultAdd = document.getElementById('add');
+        var resultSub = document.getElementById('sub');
+        var resultMul = document.getElementById('multi');
+        var resultDiv = document.getElementById('div');
+
+        var op1Num = document.getElementById('op1').valueAsNumber;
+        var op2Num = document.getElementById('op2').valueAsNumber;
+
+        resultAdd.innerHTML = op1Num + op2Num
+        resultSub.innerHTML = op1Num - op2Num
+        resultMul.innerHTML = op1Num * op2Num
+        resultDiv.innerHTML = op1Num / op2Num
+
+        //document.getElementById('add').innerHTML = document.getElementById('op1').valueAsNumber + document.getElementById('op2').valueAsNumber
+      }
+    </script>
+  </body>
+</html>
