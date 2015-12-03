@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>js05</title>
+  <style media="screen">
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #content {
+      width: 500px;
+      margin: 200px auto;
+    }
+
+    label {
+      display: inline-block;
+      width: 100px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+    <div id="country_div">
+      <label id="country_lbl">Country</label>
+      <select id="country_list" onChange="setProvince()">
+        <option id="country_opt0" value="0" selected="selected">Select County</option>
+        <option id="country_opt1" value="1">Canada</option>
+        <option id="country_opt2" value="2">USA</option>
+        <option id="country_opt3" value="3">Japan</option>
+        <option id="country_opt4" value="4">Spain</option>
+        <option id="country_opt5" value="5">Itary</option>
+      </select>
+    </div>
+    <div id="province_div">
+      <label id="province_lbl">Province</label>
+      <select id="province_list" name="">
+        <option id="province_opt0" value="0" selected="selected">Select Province</option>
+        <option id="province_opt1" value="1">BC</option>
+        <option id="province_opt2" value="2">QC</option>
+        <option id="province_opt3" value="3">ON</option>
+      </select>
+    </div>
+    <div id="city_div">
+      <label id="city_lbl">City</label>
+      <select id="city_list" name="">
+        <option id="city_opt0" value="0" selected="selected">Select City</option>
+        <option id="city_opt1" value="1">Toronto</option>
+        <option id="city_opt2" value="2">Ottawa</option>
+        <option id="city_opt3" value="3">Cambridge</option>
+      </select>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    function setProvince() {
+
+      switch (document.getElementById('country_list').value) {
+        case "1":
+          document.getElementById('province_opt1').text = "BC"
+            document.getElementById('province_opt2').text = "QC"
+            document.getElementById('province_opt3').text = "ON"
+            break;
+        case "2":
+          document.getElementById('province_opt1').text= "California"
+            document.getElementById('province_opt2').text = "Washington"
+            document.getElementById('province_opt3').text = "Florida"
+            break;
+
+        case "3":
+          document.getElementById('province_opt1').text = "HIROSHIMA"
+            document.getElementById('province_opt2').text = "TOKYO"
+            document.getElementById('province_opt3').text = "OSAKA"
+            break;
+
+        case "4":
+          document.getElementById('province_opt1').text = "Madrid"
+            document.getElementById('province_opt2').text = "Andalucia"
+            document.getElementById('province_opt3').text = "Catalonia"
+            break;
+
+        case "5":
+          document.getElementById('province_opt1').text = "Lombardia"
+            document.getElementById('province_opt2').text = "Veneto"
+            document.getElementById('province_opt3').text = "Toscana"
+            break;
+
+        default:
+      }
+    }
+
+    function getCity(province) {
+      switch (province) {
+        case "BC":
+
+          break;
+        case "QC":
+
+          break;
+        case "ON":
+
+          break;
+        default:
+
+      }
+
+    }
+  </script>
+</body>
+
+</html>
