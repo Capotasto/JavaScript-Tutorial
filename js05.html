@@ -39,8 +39,8 @@
     </div>
     <div id="province_div">
       <label id="province_lbl">Province</label>
-      <select id="province_list" onChange="setCity()">
-        <option id="province_opt0" value="0" selected="selected">Select Province</option>
+      <select id="province_list" onChange="setCity()" disabled>
+        <option id="province_opt0" value="0" selected="selected"> - </option>
         <option id="province_opt1" value="1">BC</option>
         <option id="province_opt2" value="2">QC</option>
         <option id="province_opt3" value="3">ON</option>
@@ -48,8 +48,8 @@
     </div>
     <div id="city_div">
       <label id="city_lbl">City</label>
-      <select id="city_list" name="">
-        <option id="city_opt0" value="0" selected="selected">Select City</option>
+      <select id="city_list" name="" disabled>
+        <option id="city_opt0" value="0" selected="selected"> - </option>
         <option id="city_opt1" value="1">Toronto</option>
         <option id="city_opt2" value="2">Ottawa</option>
         <option id="city_opt3" value="3">Cambridge</option>
@@ -61,6 +61,7 @@
     var selectedProvince = 0
 
     function setProvince() {
+      var list = document.getElementById('province_list')
       var opt0 = document.getElementById('province_opt0')
       var opt1 = document.getElementById('province_opt1')
       var opt2 = document.getElementById('province_opt2')
@@ -71,30 +72,40 @@
       document.getElementById('city_opt0').selected = true
 
       switch (selectedCountry) {
+        case "0":
+          list.disabled = true;
+          document.getElementById('city_list').disabled = true;
+          break;
+
         case "1":
+          list.disabled = false;
           opt1.text = "BC"
           opt2.text = "QC"
           opt3.text = "ON"
           break;
         case "2":
+          list.disabled = false;
           opt1.text = "California"
           opt2.text = "Washington"
           opt3.text = "Florida"
           break;
 
         case "3":
+          list.disabled = false;
           opt1.text = "HIROSHIMA"
           opt2.text = "TOKYO"
           opt3.text = "OSAKA"
           break;
 
         case "4":
+          list.disabled = false;
           opt1.text = "Madrid"
           opt2.text = "Andalucia"
           opt3.text = "Catalonia"
           break;
 
         case "5":
+          list.disabled = false;
           opt1.text = "Lombardia"
           opt2.text = "Veneto"
           opt3.text = "Toscana"
@@ -105,7 +116,7 @@
     }
 
     function setCity() {
-
+      var list = document.getElementById('city_list')
       var opt0 = document.getElementById('city_opt0')
       var opt1 = document.getElementById('city_opt1')
       var opt2 = document.getElementById('city_opt2')
@@ -118,18 +129,25 @@
       switch (selectedCountry) {
         case "1":
           switch (selectedProvince) {
+            case "0":
+              list.disabled = true;
+              break;
+
             case "1":
+              list.disabled = false;
               opt1.text = "Toronto"
               opt2.text = "Ottawa"
               opt3.text = "Cambridge"
               break;
             case "2":
+              list.disabled = false;
               opt1.text = "QC_City1"
               opt2.text = "QC_City2"
               opt3.text = "QC_City3"
               break;
 
             case "3":
+              list.disabled = false;
               opt1.text = "ON_City1"
               opt2.text = "ON_City2"
               opt3.text = "ON_City3"
@@ -142,18 +160,24 @@
           break;
         case "2":
           switch (selectedProvince) {
+            case "0":
+              list.disabled = true;
+              break;
             case "1":
+              list.disabled = false;
               opt1.text = "California_City1"
               opt2.text = "California_City2"
               opt3.text = "California_City3"
               break;
             case "2":
+              list.disabled = false;
               opt1.text = "Washington_City1"
               opt2.text = "Washington_City2"
               opt3.text = "Washington_City3"
               break;
 
             case "3":
+              list.disabled = false;
               opt1.text = "Florida_City1"
               opt2.text = "Florida_City2"
               opt3.text = "Florida_City3"
@@ -166,18 +190,24 @@
           break;
         case "3":
           switch (selectedProvince) {
+            case "0":
+              list.disabled = true;
+              break;
             case "1":
+              list.disabled = false;
               opt1.text = "HIROSHIMA_City1"
               opt2.text = "HIROSHIMA_City2"
               opt3.text = "HIROSHIMA_City3"
               break;
             case "2":
+              list.disabled = false;
               opt1.text = "TOKYO_City1"
               opt2.text = "TOKYO_City2"
               opt3.text = "TOKYO_City3"
               break;
 
             case "3":
+              list.disabled = false;
               opt1.text = "OSAKA_City1"
               opt2.text = "OSAKA_City2"
               opt3.text = "OSAKA_City3"
@@ -190,18 +220,24 @@
           break;
         case "4":
           switch (selectedProvince) {
+            case "0":
+              list.disabled = true;
+              break;
             case "1":
+              list.disabled = false;
               opt1.text = "Madrid_City1"
               opt2.text = "Madrid_City2"
               opt3.text = "Madrid_City3"
               break;
             case "2":
+              list.disabled = false;
               opt1.text = "Andalucia_City1"
               opt2.text = "Andalucia_City2"
               opt3.text = "Andalucia_City3"
               break;
 
             case "3":
+              list.disabled = false;
               opt1.text = "Catalonia_City1"
               opt2.text = "Catalonia_City2"
               opt3.text = "Catalonia_City3"
@@ -215,18 +251,24 @@
 
         case "5":
           switch (selectedProvince) {
+            case "0":
+              list.disabled = true;
+              break;
             case "1":
+              list.disabled = false;
               opt1.text = "Lombardia_City1"
               opt2.text = "Lombardia_City2"
               opt3.text = "Lombardia_City3"
               break;
             case "2":
+              list.disabled = false;
               opt1.text = "Veneto_City1"
               opt2.text = "Veneto_City2"
               opt3.text = "Veneto_City3"
               break;
 
             case "3":
+              list.disabled = false;
               opt1.text = "Toscana_City1"
               opt2.text = "Toscana_City2"
               opt3.text = "Toscana_City3"
