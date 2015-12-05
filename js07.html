@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>js07</title>
+  <style media="screen">
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #error_msg {
+      color: red;
+      font-size: 1em;
+    }
+
+    #content {
+      width: 600px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+
+    Mail:
+    <input id="mail_input" type="text" name="mail" placeholder="Examp1e@example.com">
+    <br/>
+    <button id="valid_btn" type="button" name="button" onclick="doValidate()">Valid</button>
+    <p id="error_msg"></p>
+  </div>
+
+
+  <script type="text/javascript">
+    function doValidate() {
+      var input = document.getElementById('mail_input').value;
+      var outPut = "";
+      var error = document.getElementById('error_msg')
+      error.innerHTML = outPut;
+
+      //Should include @
+      var isIncluded1 = false;
+      for (var i = 0; i < input.length; i++) {
+        if ((input.charAt(i).localeCompare('@')) == 0) {
+          isIncluded1 = true;
+        }
+      }
+      if (!isIncluded1) {
+        outPut = "You should include \"@\" in the box.<br/>";
+        error.innerHTML = outPut;
+      }
+
+      //Can include only a-z, A-Z, 0-9, ., underline(_)
+      for (var i = 0; i < input.length; i++) {
+        var isIncludedSmall = false;
+        var isIncludedBig = false;
+        var isIncludedNumber = false;
+        var isIncludedPeriodAndUnderLine = false;
+        isIncludedSmall = checkSmallChar(input.charAt(i));
+        isIncludedBig = checkBigChar(input.charAt(i));
+        isIncludedNumber = checkNumber(input.charAt(i));
+        isIncludedPeriodAndUnderLine = checkPeriodAndUnderLine(input.charAt(i));
+
+        if (!isIncludedSmall && !isIncludedBig && !isIncludedNumber && !isIncludedPeriodAndUnderLine) {
+          outPut = outPut + "You should use only a-z, A-Z, 0-9, ., underline(_) in the box.<br/>";
+          error.innerHTML = outPut;
+          break;
+        }
+      }
+
+      //After @ should have two parts separatable dot(.)
+      var haveTwoParts = false;
+      var inputArray = input.split('@');
+      var beforeAtMark = inputArray[0];
+      var afterAtMark = inputArray[1];
+
+      if (isIncluded1) {
+        var afterAtMarkArray = afterAtMark.split('.');
+
+        if (isNullOrUndifined(afterAtMarkArray[0]) || isNullOrUndifined(afterAtMarkArray[1])) {
+          outPut = outPut + "You should xxx.xxx form after @ mark.<br/>";
+          error.innerHTML = outPut;
+        }else{
+          //Last domain part can be only .com, .net, .org, .mil, .gov
+          if (!isNullOrUndifined(afterAtMarkArray[1])) {
+
+            var rootDomainArray = ["com", "net", "org", ".mil", "gov"];
+            var hasDomain = false;
+
+            rootDomainArray.forEach(function(entry){
+              if (afterAtMarkArray[1].localeCompare(entry) == 0) {
+                hasDomain = true;
+              }
+            });
+
+            if (!hasDomain) {
+              outPut = outPut + "Domain should be .com, .net, .org, .mil, .gov<br/>";
+              error.innerHTML = outPut;
+            }
+          }
+        }
+      }
+
+
+    }
+
+    //Check a-z
+    function checkSmallChar(inputChar) {
+      for (var i = 97; i < 123; i++) {
+        if ((inputChar.localeCompare(String.fromCharCode(i))) == 0) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    //Check A-Z
+    function checkBigChar(inputChar) {
+      for (var i = 65; i < 91; i++) {
+
+        if ((inputChar.localeCompare(String.fromCharCode(i))) == 0) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    //Check 0-9
+    function checkNumber(inputChar) {
+      for (var i = 48; i < 58; i++) {
+
+        if ((inputChar.localeCompare(String.fromCharCode(i))) == 0) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    //Check . and underline(_)
+    function checkPeriodAndUnderLine(inputChar) {
+      if (inputChar.localeCompare('.') == 0) {
+        return true;
+      }else if (inputChar.localeCompare('_') == 0) {
+        return true;
+      }else if (inputChar.localeCompare('@') == 0) {
+        return true;
+      }
+      return false;
+    }
+
+    function isNullOrUndifined(obj) {
+
+      if (typeof(obj) == "undefined" || obj == null) {
+        return true;
+      }
+      return false;
+
+    }
+  </script>
+</body>
+
+</html>
